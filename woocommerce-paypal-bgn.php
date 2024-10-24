@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'WOO_PAYPAL_BGN_NAME', 'WooCommerce Paypal BGN' );
-define( 'WOO_PAYPAL_BGN_MIN_PHP_VER', '7.2.0' );
+define( 'WOO_PAYPAL_BGN_MIN_PHP_VER', '8.2.0' );
 define( 'WOO_PAYPAL_BGN_MIN_WC_VER', '3.0' );
 define( 'WOO_PAYPAL_BGN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WOO_PAYPAL_BGN_URL', plugin_dir_url( __FILE__ ) );
