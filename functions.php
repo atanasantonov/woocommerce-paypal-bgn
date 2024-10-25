@@ -10,52 +10,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-/**
- * Check if requirements are ok.
- *
- * @return bool
- */
-function woo_paypal_bgn_requirements() {
-	// Check if all requirements are ok.
-	$woocommerce_version = defined( 'WC_VERSION' ) && version_compare( WC_VERSION, WOO_PAYPAL_BGN_MIN_WC_VER, '>=' );
-	$php_version         = version_compare( PHP_VERSION, WOO_PAYPAL_BGN_MIN_PHP_VER, '>=' );
-
-	return $woocommerce_version && $php_version;
-}
-
-
-/**
- * Requirements error message.
- *
- * @return void
- */
-function woo_paypal_bgn_requirements_error() {
-	global $pagenow;
-
-	if ( 'plugins.php' !== $pagenow ) {
-		return;
-	}
-
-	?>
-	<div class="notice notice-error">
-		<p>
-			<?php
-			printf(
-				// translators: %1$s is plugin name, %2$s is PHP version, %3$s is WooCommerce version.
-				esc_html__( '%1$s needs PHP version %2$s and WooCommerce version %3$s or newer.', 'woocommerce-paypal-bgn' ),
-				'<strong>' . esc_html( WOO_PAYPAL_BGN_NAME ) . '</strong>',
-				esc_html( WOO_PAYPAL_BGN_MIN_PHP_VER ),
-				esc_html( WOO_PAYPAL_BGN_MIN_WC_VER )
-			);
-			?>
-			</strong>
-		</p>
-	</div>
-	<?php
-}
-
-
 /**
  * Plugin initialization.
  *

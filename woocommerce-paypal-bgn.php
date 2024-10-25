@@ -30,17 +30,13 @@ define( 'WOO_PAYPAL_BGN_URL', plugin_dir_url( __FILE__ ) );
 define( 'WOO_PAYPAL_BGN_CONVERSION_RATE', 1.9585 );
 
 // Includes.
-require_once ZOTA_WC_PATH . 'functions.php';
+require_once WOO_PAYPAL_BGN_PATH . 'functions.php';
 
 // Check requirements.
-if ( woo_paypal_bgn_requirements() ) {
-	add_action( 'init', 'woo_paypal_bgn_init' );
-	add_action( 'before_woocommerce_init', 'woo_paypal_bgn_declare_wc_compatibility' );
-} else {
-	add_action( 'admin_notices', 'woo_paypal_bgn_requirements_error' );
-}
+add_action( 'init', 'woo_paypal_bgn_init' );
+add_action( 'before_woocommerce_init', 'woo_paypal_bgn_declare_wc_compatibility' );
 
 /**
  * Register deactivation hook.
  */
-register_deactivation_hook( __FILE__, 'wc_gateway_zota_deactivate' );
+register_deactivation_hook( __FILE__, 'woo_paypal_bgn_deactivate' );
